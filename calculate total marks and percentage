@@ -1,0 +1,25 @@
+//calculate total marks and percentage(input to be in array).
+
+import * as readlineSync from 'readline-sync';
+
+let no_sub:number=parseInt(readlineSync.question("Enter no. of subjects :")|| '0',10);
+let subjects:number[]=[]
+let total:number=0
+for(let i:number=0;i<no_sub;i++)
+{
+    subjects[i]=parseInt(readlineSync.question("Enter marks :")|| '0',10);
+    total=total+subjects[i]
+}
+let percentage:number=total/no_sub
+console.log("TOTAL_MARKS :",total)
+console.log("PERCENTAGE :",percentage.toFixed(2),"%");
+
+OUTPUT : 
+Enter no. of subjects :5
+Enter marks :89
+Enter marks :78
+Enter marks :45
+Enter marks :93
+Enter marks :74
+TOTAL_MARKS : 379
+PERCENTAGE : 75.80 %
