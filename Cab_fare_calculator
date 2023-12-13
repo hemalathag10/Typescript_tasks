@@ -1,0 +1,41 @@
+Write a function to Calculate Cab Fare(Business Logic-Switch Case)
+1. Micro Rs.10/km
+2. Mini Rs.15/km
+3. Prime Rs.25/km
+Based on the km user enters, total payable fare to be shown to the user.
+You can use add ons - first ride code/ discount code, etc
+-----------------------------------------------------------------------
+import * as readlineSync from 'readline-sync';
+console.log("CAB FARE CALCULATOR")
+let cab:string=String(readlineSync.question("Enter type of cab :")|| '0');
+let km:number=parseInt(readlineSync.question("Enter no_of km :")|| '0',10);
+let c:string=cab.toLowerCase()
+let amount:number=0
+let discount:number=0
+switch(c){
+case ("micro"):
+    amount=10
+    discount=0.3
+    break
+case ("mini"):
+    amount=15
+    discount=0.5
+    break
+case ("prime"):
+    amount=25
+    discount=0.8
+    break
+
+}
+let total_fare:number=amount*km
+let tot_amount:number=total_fare*((100-(discount*10))/100)
+console.log("YOUR TOTAL FARE :",total_fare,"Rs")
+console.log("DISCOUNT :",discount*10,"%")
+console.log("FINAL AMOUNT:",tot_amount,"Rs")
+-----------------------------------------------------------------------------------
+CAB FARE CALCULATOR
+Enter type of cab :prime
+Enter no_of km :12
+YOUR TOTAL FARE : 300 Rs
+DISCOUNT : 8 %
+FINAL AMOUNT: 276 Rs
