@@ -1,0 +1,18 @@
+Create a function that takes an integer as an argument and returns 'even' if the number is even and 'odd' if it's odd.
+
+import * as readlineSync from 'readline-sync';
+let num:number=parseInt(readlineSync.question("enter any number :")||'0',10);
+console.log(check_even_or_odd(num));
+
+function check_even_or_odd(num:number):string{
+    if (num%2==0){
+        return "EVEN";
+    }
+    else{
+        return "ODD";
+    }
+}
+---------------------------------------------------------------------------------
+OUTPUT:
+enter any number :5
+ODD
