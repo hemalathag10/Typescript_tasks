@@ -1,3 +1,5 @@
+import * as readlineSync from 'readline-sync';
+
 let str:string=String(readlineSync.question("Enter any sentence :")|| '0');
 let a:string[]=str.split(" ")
 let max:number=0
