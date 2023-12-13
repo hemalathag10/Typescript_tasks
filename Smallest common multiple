@@ -1,3 +1,5 @@
+import * as readlineSync from 'readline-sync';
+
 let a:number=parseInt(readlineSync.question("Enter number_1 :")|| '0',10);
 let b:number=parseInt(readlineSync.question("Enter number_1 :")|| '0',10);
 console.log("Smallest Common Multiple :",lcm(a,b))
