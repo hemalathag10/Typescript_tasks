@@ -1,0 +1,43 @@
+// Store a name, userId in LocalStorage
+localStorage.setItem("name", "abc");
+localStorage.setItem("userId", "256"); // Note: Storing as a string
+
+// Retrieve the data from localStorage
+let username: string | null = localStorage.getItem("name");
+let userIdString: string | null = localStorage.getItem("userId");
+let userId: number = userIdString ? parseInt(userIdString, 10) : 0;
+
+console.log(username); 
+console.log(userId);
+
+console.log("user_name :",username)
+console.log("user_Id :",userId)
+
+//Convert userId string to number
+let num: number = parseInt(userIdString || "0", 10);
+console.log("number :",num)
+
+//Short Syntax to get data from localStorage
+let nam=localStorage.name
+let id=localStorage.userId
+
+console.log("user_name :",nam)
+console.log("user_Id :",id)
+
+//Remove an item from LocalStorage
+localStorage.removeItem("name")
+
+//Remove all items from LocalStorage
+localStorage.clear()
+console.log("user_name :",username)
+console.log("user_Id :",userId)
+----------------------------------------------------------------------
+abc
+app.js:9 256
+app.js:10 user_name : abc
+app.js:11 user_Id : 256
+app.js:14 number : 256
+app.js:18 user_name : abc
+app.js:19 user_Id : 256
+app.js:24 user_name : abc
+app.js:25 user_Id : 256
