@@ -1,0 +1,21 @@
+// Write a function that checks if a given string is a valid username. A valid username should contain only alphanumeric characters and underscores, and should be between 4 and 16 characters long.
+// Write a function called isValidUsername that takes a string username in its parameter and returns true or false.
+
+import * as readlineSync from 'readline-sync';
+
+let user:string=String(readlineSync.question("Enter user name :")|| '0');
+console.log(check(user))
+function check(user:string):string{
+const condition:RegExp=/^[\w]{5,16}$/
+
+if (condition.test(user)){
+    return "TRUE"
+}
+else{
+    return "FALSE"
+}
+}
+---------------------------
+OUTPUT:
+Enter user name :hema321
+TRUE
