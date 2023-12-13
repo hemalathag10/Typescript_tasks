@@ -1,0 +1,21 @@
+import * as readlineSync from 'readline-sync';
+
+let str:string=String(readlineSync.question("Enter any sentence :")||'0');
+let a:string[]=str.split(" ")
+let ans:string=""
+console.log(capitalize(a))
+
+function capitalize(a:string[]):string{
+let l:number=a.length
+for(let i:number=0;i<l;i++)
+{
+   let word:string=a[i].charAt(0).toUpperCase()
+   let rem:string=a[i].replace(a[i][0],word)
+   ans=ans+" "+rem
+   
+}
+return ans
+}
+--------------------------------------------------------------------------------
+Enter any sentence :typescript is a scripting language
+ Typescript Is A Scripting Language
