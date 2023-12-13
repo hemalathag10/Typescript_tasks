@@ -1,0 +1,19 @@
+//Write a function to search for a department by its department id/ department name, if department exists to return list  of students.
+
+import * as readlineSync from 'readline-sync';
+//let user:string=String(readlineSync.question("Enter user name :")|| '0');
+let dept_name:string=String(readlineSync.question("Enter department name: ")).toUpperCase();
+let dict: { [key: string]: string[] } = {"ECE":["abc","def","gh"], "CSE":["ghi","jk"], "EEE":["aio","opl"]};
+
+console.log("Student_List :",search(dept_name))
+
+function search(name:string):string[]{
+for (let key in dict) {
+    if(name==key){
+        return dict[key]
+    }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------
+Enter department name: eee
+Student_List : [ 'aio', 'opl' ]
