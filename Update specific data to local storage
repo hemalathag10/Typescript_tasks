@@ -1,0 +1,46 @@
+const user: { id: number, name: string, active: number } = {
+    id: 101,
+    name: 'John Doe',
+    active: 0
+  };
+  
+  localStorage.setItem('user', JSON.stringify(user));
+  
+  let data: { [key: string]: string | number | null } = JSON.parse(localStorage.getItem('user') || '{}');
+  data.active = 1;
+  localStorage.setItem('user', JSON.stringify(data));
+  
+  const new_users: { id: number, name: string, active: number }[] = [
+    { id: 101, name: 'abc', active: 0 },
+    { id: 512, name: 'def', active: 0 },
+    { id: 353, name: 'ghi', active: 0 }
+  ];
+  
+  let newusers: string = JSON.stringify(new_users);
+  localStorage.setItem("new_users", newusers);
+  
+  // Retrieve new_users data from localStorage
+  const storedUsers: { id: number, name: string, active: number }[] = JSON.parse(localStorage.getItem('new_users') || '[]');
+  
+  if (storedUsers.length > 0) {
+    let find_user: { id: number, name: string, active: number } | undefined;
+  let i:number
+    for (i = 0; i < storedUsers.length; i++) {
+      if (storedUsers[i].id === 111) {
+        find_user = storedUsers[i];
+        break;
+      }
+    }
+  
+    if (find_user !== undefined) {
+      find_user.active = 1;
+  
+      // Store the updated new_users data back in localStorage
+      localStorage.setItem('new_users', JSON.stringify(storedUsers));
+    } else {
+      console.log('User with id=111 not found.');
+    }
+  } else {
+    console.log('new_users not found in localStorage.');
+  }
+  
