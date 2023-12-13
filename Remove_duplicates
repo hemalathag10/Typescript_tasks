@@ -1,0 +1,30 @@
+Write a function that takes an array of numbers and returns a new array with only the unique numbers (removing duplicates).
+
+import * as readlineSync from 'readline-sync';
+
+let array_size:number=parseInt(readlineSync.question("Enter size of array :")|| '0',10);
+let array:number[]=elements(array_size)
+console.log(removeDuplicates(array))
+
+function elements(array_size:number):number[]{
+let array_1:number[]=[]
+
+for(let i:number=0;i<array_size;i++)
+{
+    array_1[i]=parseInt(readlineSync.question("Enter elements :")|| '0',10);;
+}
+return array_1
+}
+
+function removeDuplicates(array: number[]): number[] {
+    return array.filter((value, index, self) => {
+      return self.indexOf(value) === index;
+    })}
+-----------------------------------------------------------------------------------------
+Enter size of array :5
+Enter elements :7
+Enter elements :7
+Enter elements :7
+Enter elements :4
+Enter elements :4
+[ 7, 4 ]
