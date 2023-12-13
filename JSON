@@ -1,0 +1,83 @@
+Storing data in variables.
+        JSON Data are stored as key and value
+        Accessing JSON data fields
+        Adding Field to JSON data
+        Deleting a password property from JSON object.
+        JSON Methods - Convert JSON object to String ( using JSON.stringify() method)
+        JSON Methods - Convert JSON String to JSON object (using JSON.parse() method )
+-------------------------------------------------------------------------------------------
+
+let user_credentials: { user_name: string; email: string; password: string } = {
+    "user_name": "AAA",
+    "email": "aaa@gmail.com",
+    "password": "abc@123"
+  };
+  
+  console.log(user_credentials);
+  
+  // Accessing JSON data fields
+  console.log(user_credentials.user_name);
+  console.log(user_credentials.email);
+  console.log(user_credentials.password);
+  
+  // Adding field to JSON data
+  user_credentials["department"] = "CSE";
+  console.log(user_credentials);
+  
+  // Deleting password property
+  delete user_credentials["password"];
+  console.log(user_credentials);
+  
+  // JSON object to string
+  let str: string = JSON.stringify(user_credentials);
+  console.log(str);
+  console.log(typeof str);
+  
+  // JSON string to JSON object
+  let obj: { user_name: string; email: string; department
+    : string } = JSON.parse(str);
+  console.log(obj);
+  console.log(typeof obj);
+  
+  // Sample JSON data with multiple values in a field
+  let json = {
+    "user": [
+      { "name": "abc", "email": "abc@example.com" },
+      { "name": "def", "email": "def@example.com" },
+      { "name": "ghi", "email": "ghi@example.com" }
+    ],
+    "pre": {
+      "theme": "dark",
+      "language": "en"
+    }
+  };
+  
+  // Accessing values in the array of JSON objects
+  let firstUser = json.user[0];
+  let secondUser = json.user[1];
+  let thirdUser = json.user[2];
+  
+  console.log("First User:", firstUser);
+  console.log("Second User:", secondUser);
+  console.log("Third User:", thirdUser);
+  console.log("pre:", json.pre.language);
+  ----------------------------------------------------------------------------------------
+{ user_name: 'AAA', email: 'aaa@gmail.com', password: 'abc@123' }
+AAA
+aaa@gmail.com
+abc@123
+{
+  user_name: 'AAA',
+  email: 'aaa@gmail.com',
+  password: 'abc@123',
+  department: 'CSE'
+}
+{ user_name: 'AAA', email: 'aaa@gmail.com', department: 'CSE' }
+{"user_name":"AAA","email":"aaa@gmail.com","department":"CSE"}
+string
+{ user_name: 'AAA', email: 'aaa@gmail.com', department: 'CSE' }
+object
+First User: { name: 'abc', email: 'abc@example.com' }
+Second User: { name: 'def', email: 'def@example.com' }
+Third User: { name: 'ghi', email: 'ghi@example.com' }
+pre: en
