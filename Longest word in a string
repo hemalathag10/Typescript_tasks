@@ -1,0 +1,19 @@
+let str:string=String(readlineSync.question("Enter any sentence :")|| '0');
+let a:string[]=str.split(" ")
+let max:number=0
+let word:string=""
+console.log(longest_word(str))
+function longest_word(str:string):string{
+let l:number=a.length
+for(let i:number=0;i<l;i++)
+{
+    if(a[i].length>max){
+        max=a[i].length
+        word=a[i]
+    }
+}
+return word
+}
+---------------------------------------------------------------
+Enter any sentence :typescript is a scripting language
+typescript
