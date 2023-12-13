@@ -1,0 +1,17 @@
+
+let user_credentials:{[key:string]:string | number}={"user_name":"hema","id":192}
+localStorage.setItem("user_credentials",JSON.stringify(user_credentials))
+
+let data:string |null=localStorage.getItem("user_credentials")
+if(data){
+    let user_d:{[key:string]:string | number}=JSON.parse(data)
+    console.log(user_d.user_name)
+    console.log(user_d.id)
+
+}
+else{
+    console.log("no user data")
+}
+-------------------------------------------
+hema
+192
