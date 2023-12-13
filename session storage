@@ -1,0 +1,33 @@
+// Store a name, userId in sessionStorage
+sessionStorage.setItem("name", "abc");
+sessionStorage.setItem("userId", "256"); // Note: Storing as a string
+
+// Retrieve the data from sessionStorage
+let username: string | null = sessionStorage.getItem("name");
+let userIdString: string | null = sessionStorage.getItem("userId");
+let userId: number = userIdString ? parseInt(userIdString, 10) : 0;
+
+console.log(username); 
+console.log(userId);
+
+console.log("user_name :",username)
+console.log("user_Id :",userId)
+
+//Convert userId string to number
+let num: number = parseInt(userIdString || "0", 10);
+console.log("number :",num)
+
+//Short Syntax to get data from sessionStorage
+let nam=sessionStorage.name
+let id=sessionStorage.userId
+
+console.log("user_name :",nam)
+console.log("user_Id :",id)
+
+//Remove an item from sessionStorage
+sessionStorage.removeItem("name")
+
+//Remove all items from sessionStorage
+sessionStorage.clear()
+console.log("user_name :",username)
+console.log("user_Id :",userId)
