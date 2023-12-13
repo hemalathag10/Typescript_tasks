@@ -1,0 +1,25 @@
+function check(jsonString:string):void {
+    try {
+        const Data = JSON.parse(jsonString);
+
+        if (typeof Data.age !== 'number') {
+            throw new Error('Age must be a number.');
+        }
+
+        console.log('Data:', Data);
+    } catch (error) {
+        // Handle the exception
+        console.error('Error:', error.message);
+    } finally {
+        // This block will always be executed
+        console.log('Operation completed.');
+    }
+}
+
+check('{"name": "aaa", "age": 20}');
+check('{"name": "aaa", "age": "twenty"}'); 
+-----------------------------------------------
+Data: { name: 'aaa', age: 20 }
+Operation completed.
+Error: Age must be a number.
+Operation completed.
