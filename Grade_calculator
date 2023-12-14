@@ -1,0 +1,45 @@
+import * as readlineSync from 'readline-sync';
+
+let no_sub: number = Number(readlineSync.question("Enter no of subjects:"));
+let marks:number=0;
+for(let i:number=0;i<no_sub;i++){
+    let m: number = Number(readlineSync.question("Enter marks :"));
+    marks =marks+m
+}
+
+
+let result: string = "";
+
+if (marks > 175) {
+    result = "PASS";
+} else {
+    result = "FAIL";
+}
+
+let grade: string = "";
+
+if (marks > 200 && marks < 349) {
+    grade = "C";
+} else if (marks > 350 && marks < 449) {
+    grade = "B";
+} else if (marks > 450) {
+    grade = "A";
+} else {
+    grade = "NIL";
+}
+
+console.log("TOTAL_MARKS :", marks);
+console.log("RESULT :", result);
+console.log("GRADE :", grade);
+
+----------------------------------------------------------------------------------------------
+npm install readline-sync
+
+Enter marks of sub_1:75
+Enter marks of sub_2:89
+Enter marks of sub_3:45
+Enter marks of sub_4:65
+Enter marks of sub_5:71
+TOTAL_MARKS : 345
+RESULT : PASS
+GRADE : C
