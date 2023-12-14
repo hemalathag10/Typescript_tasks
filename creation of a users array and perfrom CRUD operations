@@ -1,0 +1,77 @@
+// Create users array and store users data in LocalStorage
+let users: Array<{ user_name: string, id: number, email: string }> = [
+  { "user_name": "hema", "id": 192, "email": "hema@example.com" },
+  { "user_name": "abc", "id": 456, "email": "abc@example.com" },
+];
+localStorage.setItem("users", JSON.stringify(users));
+
+// Retrieve users data and display user details
+let stored_data = localStorage.getItem("users");
+if (stored_data) {
+  let UsersData: Array<{ user_name: string, id: number, email: string }> = JSON.parse(stored_data);
+  console.log("All Users Data:", UsersData);
+} else {
+  console.log("No users data found in localStorage.");
+}
+
+// Add an item to existing Users data in localStorage
+let new_user = { "user_name": "alice", "id": 789, "email": "alice@example.com" };
+users.push(new_user);
+localStorage.setItem("users", JSON.stringify(users));
+
+// Search if a user exists for the given inputEmailId
+let email = "hema@gmail.com";
+
+let found :any= null;
+
+for (const user of users) {
+    if (user.email === email) {
+        found = user;
+        break;
+    }
+}
+
+if (found) {
+  console.log("User Found based on Email:", found);
+} else {
+  console.log("No user found for the given email.");
+}
+
+// Search based on multiple input fields
+let inputUserName = "hema";
+let inputId = 192;
+
+let foundUser :any= null;
+
+for (const user of users) {
+    if (user.user_name === inputUserName && user.id === inputId) {
+        foundUser = user;
+        break;
+    }
+}
+
+if (foundUser) {
+  console.log("User Found based on Multiple Fields:", foundUser);
+} else {
+  console.log("No user found for the given input fields.");
+}
+
+// Search the data, if not matched print "Invalid Credentials", else store the matched in localStorage
+let newUser = { "user_name": "abc", "id": 456, "email": "abc@example.com" };
+
+let match :any= null;
+
+for (const user of users) {
+    if (user.user_name === newUser.user_name && user.id === newUser.id && user.email === newUser.email) {
+        match = user;
+        break;
+    }
+}
+
+if (match) {
+    localStorage.setItem("matchedUser", JSON.stringify(match));
+    console.log("Matched User Stored in localStorage:", match);
+} else {
+    console.log("Invalid credentials");
+}
+
